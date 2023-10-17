@@ -1,6 +1,5 @@
 # Food Recommendation System
 
-![Food](https://yourimageurl.com/food.png)
 
 ## Overview
 This repository hosts a Food Recommendation System project that suggests recipes to users based on the ingredients they have. The system uses a dataset obtained from Kaggle, which contains a wide variety of Indian food recipes with images.
