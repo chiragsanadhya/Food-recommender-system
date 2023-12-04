@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recommender</title>
+</head>
+<body>
+
+    <form id="recommendForm" action="/recommend" method="POST" enctype="application/json">
+        <label for="ingredients">Enter ingredients (comma-separated): </label>
+        <input type="text" id="ingredients" name="ingredients">
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        headers: {
+    'Content-Type': 'application/json',
+     },
+        function submitForm() {
+            const ingredients = document.getElementById('ingredients').value;
+            const form = document.getElementById('recommendForm');
+
+            fetch('/recommend', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ingredients: ingredients }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Handle the response as needed
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+</body>
+</html>
